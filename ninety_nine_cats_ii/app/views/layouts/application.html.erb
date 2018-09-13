@@ -12,8 +12,11 @@
   <body>
     <header>
       <% if current_user %>
-      '<%=  current_user.user_name %>'
-      <input type="submit" value="Log out">
+      <%=  current_user.user_name %>
+      <form  action='<%= sessions_url %>' method="post">
+        <input type="hidden" name="_method" value="delete">
+      <input type="submit"  value="Log out">
+    </form>
       <% else  %>
       <input type="submit" value="Log in">
       <% end %>
