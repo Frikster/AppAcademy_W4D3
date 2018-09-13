@@ -8,7 +8,16 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
+
   <body>
+    <header>
+      <% if current_user %>
+      '<%=  current_user.user_name %>'
+      <input type="submit" value="Log out">
+      <% else  %>
+      <input type="submit" value="Log in">
+      <% end %>
+    </header>
     <%= yield %>
   </body>
 </html>
